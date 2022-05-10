@@ -1,6 +1,6 @@
 const mongoose = require ('mongoose');
 
-const RecpSchema = mongoose.Schema(
+const CommentMarkSchema = mongoose.Schema(
     {
         StudentId: {
             type : String,
@@ -18,4 +18,4 @@ const RecpSchema = mongoose.Schema(
     },
     
 )
-module.exports = mongoose.model("Reclamation", RecSchema)
+module.exports = mongoose.model("Reclamation", CommentMarkSchema)

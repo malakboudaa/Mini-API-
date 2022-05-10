@@ -1,6 +1,6 @@
 const mongoose = require ('mongoose');
 
-const RecPvSchema = mongoose.Schema(
+const CommentPvSchema = mongoose.Schema(
     {
         StudentId: {
             type : String,
@@ -14,4 +14,4 @@ const RecPvSchema = mongoose.Schema(
     },
     
 )
-module.exports = mongoose.model("Reclamation", RecPvSchema)
+module.exports = mongoose.model("Reclamation", CommentPvSchema)
