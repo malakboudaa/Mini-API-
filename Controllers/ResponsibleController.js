@@ -33,7 +33,7 @@ const showStud = asyncHandler(
       const stud = await Students.findById(req.params.id)
       if (! stud){
         res.status(500)
-        throw new Error('Tickets do not exist')
+        throw new Error('Student does not exist')
       }else {
         res.json(stud)
       }
@@ -104,7 +104,7 @@ const showTeach= asyncHandler(
       const teach = await teachers.findById(req.params.id)
       if (! teach){
         res.status(500)
-        throw new Error('Tickets do not exist')
+        throw new Error('Teacher does not exist')
       }else {
         res.json(teach)
       }
@@ -138,17 +138,19 @@ const destroyTeach = asyncHandler(
    await teach.remove()
    res.status(200).json({
      id: req.params.id,
-     message: " this student has been deleted"
+     message: " this teacher has been deleted"
    } )
   })
 
 
     module.exports = {
+        //Student
         indexStud,
         editStud,
         showStud,
         updateStud,
         destroyStud,
+        //Teacher
         indexTeach,
         editTeach,
         showTeach,

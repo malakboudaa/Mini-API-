@@ -14,7 +14,7 @@ const editMark = asyncHandler(
        res.status(201).json(Mark) 
   })
 
-    //UPDATE /api/students:id DONE 
+//UPDATE /api/mark:id DONE 
     
     const updateMark = asyncHandler(
     async (req,res)=>{
@@ -23,13 +23,30 @@ const editMark = asyncHandler(
      res.status(500)
      throw new Error('Do not exist')
    }
-   const updateMarkk = await Marks.findByIdAndUpdate(
+   const update_Mark = await Marks.findByIdAndUpdate(
      req.params.id, req.body, {
        new : true
      })
   
-   res.status(200).json(updateMarkk)
+   res.status(200).json(update_Mark)
   })
+
+  
+//DELETE /api/mark:id DONE 
+  const destroyMark = asyncHandler(
+    async (req,res)=>{
+      const mrk = await Marks.findById(req.params.id)
+   if (! mrk){
+     res.status(500)
+     throw new Error('Do not exist')
+   }
+   await Marks.remove()
+   res.status(200).json({
+     id: req.params.id,
+     message: " this Mark has been deleted"
+   } )
+  })
+
 
 
 
@@ -37,5 +54,6 @@ const editMark = asyncHandler(
 module.exports = {
     editMark,
     updateMark,
+    destroyMark,
 
   };
