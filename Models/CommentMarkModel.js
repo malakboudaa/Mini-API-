@@ -1,0 +1,21 @@
+const mongoose = require ('mongoose');
+
+const RecpSchema = mongoose.Schema(
+    {
+        StudentId: {
+            type : String,
+            required : true
+        },
+        Contenu: {
+            type : String,
+            required : true
+        },
+        Module:{
+            type : String,
+            required : true
+        }
+       
+    },
+    
+)
+module.exports = mongoose.model("Reclamation", RecSchema)
