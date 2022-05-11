@@ -1,5 +1,7 @@
 const Students = require('../Models/StudentModel')
 const teachers = require('../Models/TeacherModel')
+const commentPV = require('../Models/CommentPvModel')
+const PV = require('../Models/PvModel')
 
 const asyncHandler = require("express-async-handler")
 
@@ -143,6 +145,32 @@ const destroyTeach = asyncHandler(
   })
 
 
+  //____________________________________________________________
+
+  //POST /api/pv DONE
+
+const editPv = asyncHandler(
+  async (req,res)=>{
+     const pv = await PV.create(
+      {
+      StudentId : req.body.StudentId ,
+      Module : req.body.Module,
+      Mark : req.body.Mark,
+      Moyenne : req.body.Moyenne,
+       }
+     )
+     res.status(201).json(editPv) 
+})
+
+// GET /api/commentPV DONE
+
+const indexCmntPv = asyncHandler(
+  async (req,res)=>{
+    const comentPv = await commentPV.find()
+    res.json(comentPv)
+  })
+
+
     module.exports = {
         //Student
         indexStud,
@@ -150,12 +178,17 @@ const destroyTeach = asyncHandler(
         showStud,
         updateStud,
         destroyStud,
+
         //Teacher
         indexTeach,
         editTeach,
         showTeach,
         updateTeach,
-        destroyTeach
+        destroyTeach,
+        //PV
+        editPv,
+        //cmntpv
+        indexCmntPv
 
        
       };

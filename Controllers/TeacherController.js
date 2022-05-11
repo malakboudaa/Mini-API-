@@ -1,17 +1,19 @@
 const Marks = require('../Models/MarkModel')
 const asyncHandler = require("express-async-handler")
+const commentMark = require ('../Models/CommentMarkModel')
 
 //POST /api/Mark DONE
 
 const editMark = asyncHandler(
     async (req,res)=>{
-       const Mark = await Marks.create(
+       const mrk = await Marks.create(
         {
+        StudentId: req.body.StudentId,
         Mark: req.body.Mark,
         Module: req.body.Module,
          }
        )
-       res.status(201).json(Mark) 
+       res.status(201).json(mrk) 
   })
 
 //UPDATE /api/mark:id DONE 
@@ -47,7 +49,13 @@ const editMark = asyncHandler(
    } )
   })
 
+// GET /api/commentMark DONE
 
+const indexComntMark= asyncHandler(
+  async (req,res)=>{
+    const cmntMarkk = await commentMark.find()
+    res.json(cmntMarkk)
+  })
 
 
 
@@ -55,5 +63,7 @@ module.exports = {
     editMark,
     updateMark,
     destroyMark,
+    indexComntMark,
+    
 
   };

@@ -6,7 +6,7 @@ const CommentPvSchema = mongoose.Schema(
             type : String,
             required : true
         },
-        Contenu: {
+        Content: {
             type : String,
             required : true
         },

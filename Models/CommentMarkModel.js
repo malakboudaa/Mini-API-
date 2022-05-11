@@ -6,16 +6,15 @@ const CommentMarkSchema = mongoose.Schema(
             type : String,
             required : true
         },
-        Contenu: {
+        Content: {
             type : String,
             required : true
         },
         Module:{
             type : String,
             required : true
-        }
-       
+        }  
     },
     
 )
-module.exports = mongoose.model("Reclamation", CommentMarkSchema)
+module.exports = mongoose.model("CommentMark", CommentMarkSchema)

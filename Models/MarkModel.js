@@ -3,7 +3,7 @@ const mongoose = require ('mongoose');
 const MarkSchema = mongoose.Schema(
     {
         StudentId: {
-            type : Number,
+            type : String,
             required : true
         },
         Mark: {
@@ -18,4 +18,4 @@ const MarkSchema = mongoose.Schema(
     },
     
 )
-module.exports = mongoose.model("Mark", MarkSchema)
+module.exports = mongoose.model("marks", MarkSchema)
